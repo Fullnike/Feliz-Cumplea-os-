@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        /* ==================================== */
+        /* --- ESTILOS GENERALES Y LAYOUT --- */
+        /* ==================================== */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f7e1ff; /* Fondo suave */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* --- ESTILOS DEL TÍTULO --- */
+        h1 {
+            color: #4169e1; /* Azul Real */
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        /* --- ESTILOS DEL BOTÓN --- */
+        .gift-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #4169e1;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .gift-button:hover {
+            background-color: #3150b0;
+        }
+
+        /* --- ESTILOS DEL CONTENEDOR DEL REGALO (DIV) --- */
+        .gift-container {
+            display: none; /* Inicialmente oculto */
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* --- ESTILOS DE LA CAJA ABIERTA (Contenido) --- */
+        .gift-content {
+            width: 100%;
+            height: 100%;
+            background-color: white; 
+            border: 2px solid #ccc; /* Borde gris */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        /* --- ESTILOS DEL MENSAJE --- */
+        .bear-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .heart {
+            color: #ff6347; /* Rojo para el corazón */
+        }
+
+        /* ==================================== */
+        /* --- ESTILOS DEL OSO PIXELADO (PIXEL ART) --- */
+        /* ==================================== */
+        
+        /* Contenedor del oso pixelado */
+        .pixel-bear-container {
+            display: grid;
+            grid-template-columns: repeat(12, 10px); /* 12 columnas, 10px cada píxel */
+            grid-template-rows: repeat(10, 10px);   /* 10 filas, 10px cada píxel */
+            width: 120px; /* 12 * 10px */
+            height: 100px; /* 10 * 10px */
+            margin-top: 20px; 
+            position: relative;
+            transform: scale(1.5); /* Escalar para que sea un poco más grande y visible */
+            transform-origin: center center;
+        }
+
+        /* Estilo base para cada píxel */
+        .pixel {
+            width: 10px;
+            height: 10px;
+            background-color: transparent; 
+        }
+
+        /* Colores de los píxeles */
+        .pixel.brown-dark { background-color: #8B4513; } /* Marrón oscuro */
+        .pixel.brown-light { background-color: #D2B48C; } /* Marrón claro */
+        .pixel.cream { background-color: #F5DEB3; }    /* Crema para el morro */
+        .pixel.black { background-color: #000000; }    /* Negro para ojos y nariz */
+        .pixel.red { background-color: #FF0000; }      /* Rojo para el corazón */
+    </style>
+</head>
+<body>
+
+    <h1>¡Feliz Cumpleaños! 🎉🎵</h1>
+    
+    <button class="gift-button" onclick="openGift()">Presiona para abrir tu regalo</button>
+    
+    <div id="gift" class="gift-container">
+        <div class="gift-content">
+            
+            <div class="bear-message">
+                Para ti <span class="heart">💖</span>
+            </div>
+            
+            <div class="pixel-bear-container">
+                <span class="pixel brown-dark" style="grid-area: 1 / 4;"></span>
+                <span class="pixel brown-dark" style="grid-area: 1 / 9;"></span>
+                <span class="pixel brown-light" style="grid-area: 1 / 5;"></span>
+                <span class="pixel brown-light" style="grid-area: 1 / 8;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 2 / 5;"></span>
+                <span class="pixel brown-dark" style="grid-area: 2 / 6;"></span>
+                <span class="pixel brown-dark" style="grid-area: 2 / 7;"></span>
+                <span class="pixel brown-dark" style="grid-area: 2 / 8;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 3 / 4;"></span>
+                <span class="pixel brown-dark" style="grid-area: 3 / 9;"></span>
+                <span class="pixel brown-light" style="grid-area: 3 / 5;"></span>
+                <span class="pixel brown-light" style="grid-area: 3 / 6;"></span>
+                <span class="pixel brown-light" style="grid-area: 3 / 7;"></span>
+                <span class="pixel brown-light" style="grid-area: 3 / 8;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 4 / 3;"></span>
+                <span class="pixel brown-dark" style="grid-area: 4 / 10;"></span>
+                <span class="pixel brown-light" style="grid-area: 4 / 4;"></span>
+                <span class="pixel brown-light" style="grid-area: 4 / 9;"></span>
+                
+                <span class="pixel black" style="grid-area: 4 / 5;"></span>
+                <span class="pixel black" style="grid-area: 4 / 8;"></span>
+
+                <span class="pixel cream" style="grid-area: 5 / 5;"></span>
+                <span class="pixel cream" style="grid-area: 5 / 6;"></span>
+                <span class="pixel cream" style="grid-area: 5 / 7;"></span>
+                <span class="pixel cream" style="grid-area: 5 / 8;"></span>
+
+                <span class="pixel cream" style="grid-area: 6 / 6;"></span>
+                <span class="pixel cream" style="grid-area: 6 / 7;"></span>
+                
+                <span class="pixel black" style="grid-area: 5 / 6;"></span>
+                <span class="pixel black" style="grid-area: 5 / 7;"></span>
+                <span class="pixel black" style="grid-area: 6 / 7;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 7 / 4;"></span>
+                <span class="pixel brown-dark" style="grid-area: 7 / 9;"></span>
+                <span class="pixel brown-light" style="grid-area: 7 / 5;"></span>
+                <span class="pixel brown-light" style="grid-area: 7 / 6;"></span>
+                <span class="pixel brown-light" style="grid-area: 7 / 7;"></span>
+                <span class="pixel brown-light" style="grid-area: 7 / 8;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 8 / 3;"></span>
+                <span class="pixel brown-dark" style="grid-area: 8 / 10;"></span>
+                <span class="pixel brown-light" style="grid-area: 8 / 4;"></span>
+                <span class="pixel brown-light" style="grid-area: 8 / 9;"></span>
+                
+                <span class="pixel red" style="grid-area: 8 / 5;"></span>
+                <span class="pixel red" style="grid-area: 8 / 8;"></span>
+                
+                <span class="pixel brown-light" style="grid-area: 8 / 6;"></span>
+                <span class="pixel brown-light" style="grid-area: 8 / 7;"></span>
+
+                <span class="pixel brown-dark" style="grid-area: 9 / 2;"></span>
+                <span class="pixel brown-dark" style="grid-area: 9 / 11;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 3;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 4;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 5;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 8;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 9;"></span>
+                <span class="pixel brown-light" style="grid-area: 9 / 10;"></span>
+
+                <span class="pixel red" style="grid-area: 9 / 6;"></span>
+                <span class="pixel red" style="grid-area: 9 / 7;"></span>
+            </div>
+            </div>
+    </div>
+
+    <script>
+        function openGift() {
+            const giftContainer = document.getElementById('gift');
+            const giftButton = document.querySelector('.gift-button');
+            
+            // 1. Mostrar el regalo
+            // Usamos 'flex' para mantener el contenido centrado
+            giftContainer.style.display = 'flex'; 
+            
+            // 2. Deshabilitar el botón y cambiar su texto
+            giftButton.textContent = '¡Regalo abierto!';
+            giftButton.disabled = true; 
+        }
+    </script>
+
+</body>
+</html>
