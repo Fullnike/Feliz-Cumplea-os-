@@ -125,7 +125,7 @@
     <div class="envelope">
         <div class="card">
             <div class="gift-icon">🎁</div>
-            <div class="message">¡Para ti Papi! <br> Tócame</div>
+            <div class="message">¡Para ti jaquelin ♥︎! <br> Tócame</div>
         </div>
     </div>
     <div class="instruction" id="hint">Haz clic en el sobre</div>
